@@ -22,9 +22,18 @@ class AddPage extends StatelessWidget {
               print(nameEditingController.text);
               print(placeEditingController.text);
               print(descEditingController.text);
+              if (nameEditingController.text  == "" || placeEditingController.text == "" || descEditingController.text == ""){
+                print("Later add toast to remind user to fill in all info");
+              }
+              else {
+                var newItem = {
+                  "name": nameEditingController.text,
+                  "place": placeEditingController.text,
+                  "desc": descEditingController.text
+                };
 
-              Navigator.pop(context);
-
+                Navigator.pop(context, newItem);
+              }
             }, child: Text("Add new item"))
 
           ],
